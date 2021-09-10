@@ -360,6 +360,10 @@ void SearchableText::handle_nav_event(QKeyEvent* event) {
     extend_selection(QTextCursor::Up, SelectionSide::Cursor);
     return;
   }
+  if (event->matches(QKeySequence::Paste)) {
+    extend_selection(QTextCursor::End, SelectionSide::Cursor);
+    return;
+  }
   QWidget::keyPressEvent(event);
 }
 
